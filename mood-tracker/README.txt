@@ -1,4 +1,4 @@
-README File for Mood Tracker Dissertation Project by Duncan Mitchell 3024246
+README File for Mood Tracker Dissertation Project by Duncan Mitchell 
 
 Various Online Code Libraries and Frameworks were used, all are linked within the HTML files
 
@@ -45,4 +45,5 @@ Username: user
 Password: 123456789
 //ADMIN//
 Username: admin
+
 Password: 0987654321
