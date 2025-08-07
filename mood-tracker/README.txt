@@ -37,7 +37,7 @@ https://www.flaticon.com/icons
 
 ///TO RUN THE APPLICATION///
 Navigate to the mood-tracker folder (where the README is located, so you should already be here) and open a terminal window.
-Type "node server.js" into the file and then press enter
+Type "node server.js" into the window and then press enter
 Now navigate to http://localhost:3000/home-general.html and you should be able to use the application.
 The login system is hardcoded and you must use the following details to log in:
 ///USER///
@@ -47,3 +47,4 @@ Password: 123456789
 Username: admin
 
 Password: 0987654321
+
