@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--http://localhost:3000/home-general.html-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Tracker: Home</title>
+  <link rel="icon" href="media/site-logo.png" type="image/png">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: beige;
+    }
+    .col-sm-9 {
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid black;
+      text-align: center;
+      background: beige;
+    }
+    .navbar {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .side-nav {
+      background-color: darkslategray;
+      min-height: 100vh;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+
+    .side-nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 4px;
+      transition: background-color 0.6s;
+    }
+
+
+    .side-nav a:hover {
+      background-color: #575757;
+      font-weight: bold;
+    }
+
+
+
+
+  </style>
+  <link rel="stylesheet" href="globalStyles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="user.js" defer></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="media/site-logo.png" alt="Site Logo" style="height: 50px; width: auto;" class="me-2">
+      <span style="font-size:32px;">Mood Tracker</span>
+    </a>
+<!--    <div style="justify-content: right;"><a class="btn btn-secondary" href="user-profile.html">Profile</a></div>-->
+  </div>
+</nav>
+<div class="row">
+  <div class="col-sm-3 side-nav">
+    <ul class="list-unstyled">
+      <li><a href="http://localhost:3000/home-general.html" style="background-color: #575757;font-weight: bold;">Home Page</a></li>
+      <li><a href="http://localhost:3000/login-client.html">Login to Access More Features</a></li>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+  <div class="Title-Section">
+    <h1 style="font-weight:bold;">Unnamed Mood Tracker <img style="height: 100px;width: auto;display: inline-block" src="media/site-logo.png" alt="three squares of green, yellow and red in diagonal order"></h1>
+  </div>
+
+  <p>A comprehensive <strong>digital solution</strong> to the delivery of <strong>Cognitive Behavioural Therapy</strong> in the format of a <strong>Mood Tracking Application</strong></p><br>
+  <p>This site provides an interactive way for users to interactively learn the beneficial techniques which can be learned through Cognitive Behavioural Therapy<br>
+    while interacting digitally with a healthcare professional. To get started, please click the button below:
+  </p>
+  <a href="http://localhost:3000/login-client.html" style="background-color: darkslategray; color:white; font-weight:bold; border-radius: 4px; text-decoration:none;padding: 10px;">Get Started</a>
+</div>
+</div>
+</body>
+</html>

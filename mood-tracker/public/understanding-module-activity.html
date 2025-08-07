@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- http://localhost:3000/understanding-module.html -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Tracker: Understanding Module</title>
+  <link rel="icon" href="media/site-logo.png" type="image/png">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: beige;
+    }
+    .col-sm-9 {
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid black;
+      text-align: center;
+      background: beige;
+    }
+    .navbar {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .side-nav {
+      background-color: darkslategray;
+      min-height: 100vh;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .side-nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 4px;
+      transition: background-color 0.6s;
+    }
+    .side-nav a:hover {
+      background-color: #575757;
+      font-weight: bold;
+    }
+    .carousel-item {
+      padding: 20px;
+    }
+    .tickbox-group{
+      border: 2px dot-dash #ccc;
+    }
+    .tickbox-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .next-btn, .finish-btn {
+      margin-top: 20px;
+    }
+    #completionMessage {
+      margin-top: 20px;
+    }
+    .row {
+      display: flex;
+      align-items: stretch;
+    }
+
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="userModuleHandler.js" defer></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="media/site-logo.png" alt="Site Logo" style="height: 50px; width: auto;" class="me-2">
+      <span style="font-size:32px;">Mood Tracker</span>
+    </a>
+    <div style="justify-content: right;"><a class="btn btn-secondary" href="user-profile.html">Profile</a></div>
+  </div>
+</nav>
+<div class="row d-flex">
+  <div class="col-sm-3 side-nav">
+    <ul class="list-unstyled">
+      <li><a href="http://localhost:3000/user-client.html">Mood Tracking</a></li>
+      <li><a href="http://localhost:3000/user-CBT-modules.html" style="background-color: #575757;font-weight: bold;">CBT Modules</a></li>
+      <li><a href="http://localhost:3000/user-contact.html">Contact Healthcare Provider</a></li>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+    <h2>Understanding Anxiety, Low Mood and Worry</h2>
+    <p>
+      Below is an interactive module to help you reflect on how depression, panic, and anxiety affect you.
+      Please complete each slide by selecting at least one option before moving on. When you finish the module,
+      you'll receive a congratulatory message.
+    </p>
+    <div id="cbtCarousel" class="carousel slide" data-bs-interval="false">
+      <div class="carousel-inner">
+        <!-- Slide 1: Understanding Depression -->
+        <div class="carousel-item active" data-section="depression">
+          <h3>Understanding Depression</h3>
+          <p>
+            Depression is an experience which can be quite distressing. This is also referred to as low mood and can often affect the way which we function, what we think and how we feel.<br>
+            The section below should help you to further understand how depression may affect you.
+            <br><br>
+            Below you will find some tick boxes which refer to how low mood and depression may affect you. Please tick whichever seem relevant to you, and then press submit.<br>
+            Your healthcare provider will be able to view your answers, and may wish to provide help in the contact section.<br>
+          </p>
+          <p>Please indicate how depression affects you by selecting all that apply.</p>
+          <div class="row">
+            <div class="tickbox-group col-3">
+              <h5>Thoughts</h5>
+              <label><input type="checkbox" name="thoughts" value="I feel worthless"> I'm a failure</label>
+              <label><input type="checkbox" name="thoughts" value="People think I'm stupid"> People think I'm stupid</label>
+              <label><input type="checkbox" name="thoughts" value="Nobody likes me"> Nobody likes me</label>
+              <label><input type="checkbox" name="thoughts" value="There's no point"> There's no point</label>
+              <label><input type="checkbox" name="thoughts" value="I might as well not be here"> I might as well not be here</label>
+            </div>
+            <div class="tickbox-group col-3">
+              <h5>Emotions</h5>
+              <label><input type="checkbox" name="emotions" value="Depressed"> Depressed</label>
+              <label><input type="checkbox" name="emotions" value="Sad"> Sad</label>
+              <label><input type="checkbox" name="emotions" value="Lethargic"> Lethargic</label>
+              <label><input type="checkbox" name="emotions" value="Irritable"> Irritable</label>
+              <label><input type="checkbox" name="emotions" value="Suicidal"> Suicidal</label>
+            </div>
+            <div class="tickbox-group col-3">
+              <h5>Physical Symptoms</h5>
+              <label><input type="checkbox" name="physical symptoms" value="Difficulties Sleeping"> Difficulties Sleeping</label>
+              <label><input type="checkbox" name="physical symptoms" value="Poor appetite"> Poor appetite or over eating</label>
+              <label><input type="checkbox" name="physical symptoms" value="Tearful"> Tearful</label>
+              <label><input type="checkbox" name="physical symptoms" value="Loss of sex drive"> Loss of sex drive</label>
+            </div>
+            <div class="tickbox-group col-3">
+              <h5>Behaviours</h5>
+              <label><input type="checkbox" name="behaviours" value="Social Withdrawal"> Social Withdrawal</label>
+              <label><input type="checkbox" name="behaviours" value="Increased smoking"> Increased smoking or drinking</label>
+              <label><input type="checkbox" name="behaviours" value="Decrease in activities"> Decrease in activities</label>
+              <label><input type="checkbox" name="behaviours" value="Sleeping during the day"> Sleeping during the day</label>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary next-btn module-submit-btn" data-section="depression" id="submit-depression-btn" disabled>Next</button>
+        </div>
+        <!-- Slide 2: Understanding Panic -->
+        <div class="carousel-item" data-section="panic">
+          <h3>Understanding Panic</h3>
+          <p>
+            Panic attacks, an extreme form of anxiety, are not a pleasant experience. The physical symptoms of these can often cause us to think irrationally due to the<br>
+            fear associated with some of the physical symptoms.
+            <br><br>
+            Below you will find some tick boxes which refer to how panic may affect you. Please tick whichever seem relevant to you, and then press submit.<br>
+            Your healthcare provider will be able to view your answers, and may wish to provide help in the contact section.<br>
+          </p>
+          <p>Please indicate how panic affects you by selecting all that apply.</p>
+          <div class="row">
+            <div class="tickbox-group col-3">
+              <h5>Thoughts</h5>
+              <label><input type="checkbox" name="thoughts" value="Something Awful is going to happen"> Something Awful is going to happen</label>
+              <label><input type="checkbox" name="thoughts" value="I will not be able to cope"> I will not be able to cope</label>
+              <label><input type="checkbox" name="thoughts" value="What if I don't do it right"> What if I don't do it right</label>
+              <label><input type="checkbox" name="thoughts" value="What will people think of me"> What will people think of me</label>
+              <label><input type="checkbox" name="thoughts" value="I need to escape"> I need to escape</label>
+            </div>
+            <div class="tickbox-group col-3">
+              <h5>Emotions</h5>
+              <label><input type="checkbox" name="emotions" value="Anxious"> Anxious</label>
+              <label><input type="checkbox" name="emotions" value="Scared"> Scared</label>
+              <label><input type="checkbox" name="emotions" value="Nervous"> Nervous</label>
+              <label><input type="checkbox" name="emotions" value="Irritable"> Irritable</label>
+              <label><input type="checkbox" name="emotions" value="Depressed"> Depressed</label>
+            </div>
+            <div class="tickbox-group col-3">
+              <h5>Physical Symptoms</h5>
+              <label><input type="checkbox" name="physical symptoms" value="Racing Heart Beat"> Racing Heart Beat</label>
+              <label><input type="checkbox" name="physical symptoms" value="Feeling sick and dizzy"> Feeling sick and dizzy</label>
+              <label><input type="checkbox" name="physical symptoms" value="Short of breath"> Short of breath</label>
+              <label><input type="checkbox" name="physical symptoms" value="Hot and Sweaty"> Hot and Sweaty</label>
+              <label><input type="checkbox" name="physical symptoms" value="Urgently needing the toilet"> Urgently needing the toilet</label>
+            </div>
+            <div class="tickbox-group col-3">
+              <h5>Behaviours</h5>
+              <label><input type="checkbox" name="behaviours" value="Avoiding Situations"> Avoiding Situations</label>
+              <label><input type="checkbox" name="behaviours" value="Needing to escape"> Needing to escape</label>
+              <label><input type="checkbox" name="behaviours" value="Carrying medicine, bottled water, a paper bag, with us"> Carrying medicine, bottled water, a paper bag, with us</label>
+              <label><input type="checkbox" name="behaviours" value="Not wanting to sleep"> Not wanting to sleep</label>
+              <label><input type="checkbox" name="behaviours" value="Drinking more alcohol"> Drinking more alcohol</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary next-btn module-submit-btn" data-section="panic" id="submit-panic-btn" disabled>Next</button>
+        </div>
+        <!-- Slide 3: Understanding Anxiety -->
+        <div class="carousel-item" data-section="anxiety">
+          <h3>Understanding Anxiety</h3>
+          <p>
+            Anxiety is a combination of emotions which are unpleasant. These emotions can cause many things such as worry and nerves, or even worse, panic attacks.<br>
+            Anxiety at it's core is a survival mechanism dating back from early humanity and is built into us through evolution. This sort of anxiety is supposed to be there <br>
+            to keep us safe. Unfortunately, anxiety is sometimes not supposed to be there, and this can affect the way in which we function.
+            <br><br>
+            Below you will find some tick boxes which refer to how anxiety may affect you. Please tick whichever seem relevant to you, and then press submit.<br>
+            Your healthcare provider will be able to view your answers, and may wish to provide help in the contact section.<br>
+          </p>
+          <p>Please indicate how anxiety affects you by selecting all that apply.</p>
+          <div class="row">
+            <div class="tickbox-group col-3">
+              <h5>Thoughts</h5>
+              <label><input type="checkbox" name="thoughts" value="Something Awful is going to happen"> Something awful is going to happen</label>
+              <label><input type="checkbox" name="thoughts" value="I will not be able to cope"> I will not be able to cope</label>
+              <label><input type="checkbox" name="thoughts" value="What if I don't do it right"> What if I don't do it right</label>
+              <label><input type="checkbox" name="thoughts" value="What will people think of me"> What will people think of me</label>
+              <label><input type="checkbox" name="thoughts" value="I need to escape"> I need to escape</label>
+            </div>
+            <div class="tickbox-group col-3">
+              <h5>Emotions</h5>
+              <label><input type="checkbox" name="emotions" value="Anxious"> Anxious</label>
+              <label><input type="checkbox" name="emotions" value="Scared"> Scared</label>
+              <label><input type="checkbox" name="emotions" value="Nervous"> Nervous</label>
+              <label><input type="checkbox" name="emotions" value="Irritable"> Irritable</label>
+              <label><input type="checkbox" name="emotions" value="Depressed"> Depressed</label>
+            </div>
+            <div class="tickbox-group col-3">
+              <h5>Physical Symptoms</h5>
+              <label><input type="checkbox" name="physical symptoms" value="Faster Heart Beat"> Faster Heart Beat</label>
+              <label><input type="checkbox" name="physical symptoms" value="Physical tension"> Physical tension</label>
+              <label><input type="checkbox" name="physical symptoms" value="Dizziness"> Dizziness</label>
+              <label><input type="checkbox" name="physical symptoms" value="Hot and Sweaty"> Hot and Sweaty</label>
+              <label><input type="checkbox" name="physical symptoms" value="Tunnel Vision"> Tunnel Vision</label>
+            </div>
+            <div class="tickbox-group col-3">
+              <h5>Behaviours</h5>
+              <label><input type="checkbox" name="behaviours" value="Avoiding Situations"> Avoiding Situations</label>
+              <label><input type="checkbox" name="behaviours" value="Increased smoking or drinking"> Increased smoking or drinking</label>
+              <label><input type="checkbox" name="behaviours" value="Arguing"> Arguing</label>
+              <label><input type="checkbox" name="behaviours" value="Talking or doing things faster"> Talking or doing things faster</label>
+              <label><input type="checkbox" name="behaviours" value="Under or over eating"> Under or over eating</label>
+            </div>
+          </div>
+
+          <div id="completionMessage" class="alert alert-success mt-3" style="display: none;">
+            <p>Congratulations! You have completed the module and have earned the: "Understanding Depression, Anxiety and Panic" Badge.</p><br>
+            <a class="btn btn-success" href="http://localhost:3000/user-CBT-modules.html">Return to CBT Module Selection</a>
+          </div>
+          <button type="button" class="btn btn-success finish-btn module-submit-btn" data-section="anxiety" id="submit-anxiety-btn" disabled>Finish Module</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="modal fade" id="badgeModal" tabindex="-1" aria-labelledby="badgeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="justify-content: center;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="badgeModalLabel">Badge Earned!</h5>
+      </div>
+      <div class="modal-body">
+        Congratulations, you earned the Understanding Badge<br>
+        <img src="media/badgeMod1.png" style="width:10%; height: auto">
+      </div>
+      <div class="modal-footer">
+        <p>Click anywhere outside this box to return to module or:</p><br>
+        <a class="btn btn-secondary" href="user-profile.html">Go to Profile</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+  /**
+   * Later on this is done within the relevant .js files, but this one broke and as a result it is in the
+   * main HTML file. Nothing wrong with that surely?
+   *
+   * AHAHAHAHA I spent 4 years on this course and still can't code any better than I could when I first joined
+   */
+  // Carousel and form validation code
+  document.addEventListener("DOMContentLoaded", () => {
+    // Initialize the carousel without auto cycling
+    const carouselElement = document.getElementById("cbtCarousel");
+    const carousel = new bootstrap.Carousel(carouselElement, { interval: false });
+
+    // For each carousel slide, manage the Next/Finish button state
+    document.querySelectorAll(".carousel-item").forEach(slide => {
+      const nextBtn = slide.querySelector(".next-btn") || slide.querySelector(".finish-btn");
+      if (nextBtn) {
+        // Listen for changes in checkboxes
+        const checkboxes = slide.querySelectorAll("input[type='checkbox']");
+        checkboxes.forEach(cb => {
+          cb.addEventListener("change", () => {
+            nextBtn.disabled = !Array.from(checkboxes).some(c => c.checked);
+          });
+        });
+
+        // On button click, if it's not the finish button, move to next slide;
+        // if finish button, show completion message.
+        nextBtn.addEventListener("click", () => {
+          if (nextBtn.classList.contains("next-btn")) {
+            carousel.next();
+          } else if (nextBtn.classList.contains("finish-btn")) {
+            document.getElementById("completionMessage").style.display = "block";
+          }
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>

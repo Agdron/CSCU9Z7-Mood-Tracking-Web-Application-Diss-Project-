@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- http://localhost:3000/BehavioralActivation.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker: Behavioural Activation</title>
+    <link rel="icon" href="media/site-logo.png" type="image/png">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: beige;
+        }
+        .navbar {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .side-nav {
+            background-color: darkslategray;
+            min-height: 100vh;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .side-nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 4px;
+            transition: background-color 0.6s;
+        }
+        .side-nav a:hover {
+            background-color: #575757;
+            font-weight: bold;
+        }
+        .col-sm-9 {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid black;
+            background: beige;
+        }
+        .carousel-item {
+            padding: 20px;
+        }
+        .drop-zone {
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            min-height: 150px;
+            margin: 10px;
+        }
+        .drop-zone h4 {
+            margin-top: 0;
+        }
+        .draggable-item {
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 5px;
+            cursor: grab;
+            display: inline-block;
+        }
+        .activity-card {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            width: 150px;
+        }
+        .activity-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .custom-activity {
+            margin-top: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="globalStyles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="BehaviouralActivation.js" defer></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="media/site-logo.png" alt="Site Logo" style="height: 50px; width: auto;" class="me-2">
+            <span style="font-size:32px;">Mood Tracker</span>
+        </a>
+        <div style="justify-content: right;"><a class="btn btn-secondary" href="user-profile.html">Profile</a></div>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-sm-3 side-nav">
+        <ul class="list-unstyled">
+            <li><a href="http://localhost:3000/user-client.html" >Mood Tracking</a></li>
+            <li><a href="http://localhost:3000/user-CBT-modules.html" style="background-color: #575757; font-weight: bold;">CBT Modules</a></li>
+            <li><a href="http://localhost:3000/user-contact.html">Contact Healthcare Provider</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <div id="module4Carousel" class="carousel slide" data-bs-interval="false">
+            <div class="carousel-inner">
+                <!-- Slide 1: Introduction -->
+                <div class="carousel-item active">
+                    <h2>Welcome to Behavioral Activation & Activity Scheduling</h2>
+                    <p>This module helps you overcome low mood by planning and tracking activities that boost your mood. You'll first learn to sort activities by type, then select and schedule an activity for your week.</p>
+                    <button class="btn btn-primary" data-bs-target="#module4Carousel" data-bs-slide="next">Next</button>
+                </div>
+                <!-- Slide 2: Sorting Task -->
+                <div class="carousel-item">
+                    <h2>Sorting Task</h2>
+                    <p>Drag each activity card into the correct category:</p>
+                    <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+                        <div class="drop-zone" id="drop-routine">
+                            <h4>Routine</h4>
+                            <img src="media/routine.png" alt="Routine" style="max-width:50px;">
+                        </div>
+                        <div class="drop-zone" id="drop-necessary">
+                            <h4>Necessary</h4>
+                            <img src="media/necessary.png" alt="Necessary" style="max-width:50px;">
+                        </div>
+                        <div class="drop-zone" id="drop-pleasurable">
+                            <h4>Pleasurable</h4>
+                            <img src="media/pleasurable.png" alt="Pleasurable" style="max-width:50px;">
+                        </div>
+                    </div>
+                    <div id="sorting-items">
+                        <!-- Draggable items with data-category attribute -->
+                        <div class="draggable-item" draggable="true" data-category="Routine">Make your bed</div>
+                        <div class="draggable-item" draggable="true" data-category="Necessary">Pay bills</div>
+                        <div class="draggable-item" draggable="true" data-category="Pleasurable">Go for a walk</div>
+                        <div class="draggable-item" draggable="true" data-category="Routine">Eat a healthy breakfast</div>
+                        <div class="draggable-item" draggable="true" data-category="Necessary">Attend a meeting</div>
+                        <div class="draggable-item" draggable="true" data-category="Pleasurable">Call a friend</div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="checkSorting()">Check Sorting</button>
+                    <button class="btn btn-primary" data-bs-target="#module4Carousel" data-bs-slide="next" id="sorting-next-btn" style="display:none;">Next</button>
+                </div>
+                <!-- Slide 3: Activity Selection -->
+                <div class="carousel-item">
+                    <h2>Activity Selection</h2>
+                    <p>Select an activity from the suggestions below, or type your own idea.</p>
+                    <div id="activity-suggestions">
+                        <div class="activity-card" data-activity="Take a Walk">
+                            <img src="media/activity1.png" alt="Take a Walk">
+                            <p>Take a Walk</p>
+                            <button class="btn btn-sm btn-primary" onclick="selectActivity('Take a Walk')">Select</button>
+                        </div>
+                        <div class="activity-card" data-activity="Meditate">
+                            <img src="media/activity2.png" alt="Meditate">
+                            <p>Meditate</p>
+                            <button class="btn btn-sm btn-primary" onclick="selectActivity('Meditate')">Select</button>
+                        </div>
+                        <div class="activity-card" data-activity="Read a Book">
+                            <img src="media/activity3.png" alt="Read a Book">
+                            <p>Read a Book</p>
+                            <button class="btn btn-sm btn-primary" onclick="selectActivity('Read a Book')">Select</button>
+                        </div>
+                        <div class="activity-card" data-activity="Call a Friend">
+                            <img src="media/activity4.png" alt="Call a Friend">
+                            <p>Call a Friend</p>
+                            <button class="btn btn-sm btn-primary" onclick="selectActivity('Call a Friend')">Select</button>
+                        </div>
+                    </div>
+                    <div class="custom-activity">
+                        <label for="custom-activity-input" class="form-label">Or enter your own activity:</label>
+                        <input type="text" id="custom-activity-input" class="form-control" placeholder="Your custom activity">
+                        <button class="btn btn-sm btn-primary mt-2" onclick="selectActivity(document.getElementById('custom-activity-input').value)">Select Custom Activity</button>
+                    </div>
+                    <button class="btn btn-primary" onclick="goToSchedule()">Next</button>
+                </div>
+                <!-- Slide 4: Activity Scheduling -->
+                <div class="carousel-item">
+                    <h2>Schedule Your Activity</h2>
+                    <p>Enter the details for your selected activity.</p>
+                    <div id="selected-activity"></div>
+                    <div class="mb-3">
+                        <label for="activity-date" class="form-label">Date:</label>
+                        <input type="date" id="activity-date" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="activity-time" class="form-label">Time:</label>
+                        <input type="time" id="activity-time" class="form-control">
+                    </div>
+                    <button class="btn btn-primary" onclick="saveScheduledActivity()">Add to Schedule</button>
+                    <div id="schedule-list" style="margin-top:20px; text-align:left;"></div>
+                    <button class="btn btn-primary" onclick="submitSchedule()">Submit Schedule</button>
+                </div>
+                <!-- Slide 5: Congratulations -->
+                <div class="carousel-item">
+                    <div class="alert alert-success mt-3">
+                        <h2>Congratulations!</h2>
+                        <p>You've completed Module 4: Behavioral Activation & Activity Scheduling and have earned the Behavioural Activation Badge</p>
+                        <a class="btn btn-success" href="http://localhost:3000/user-CBT-modules.html">Return to CBT Module Selection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="badgeModal" tabindex="-1" aria-labelledby="badgeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="badgeModalLabel">Badge Earned!</h5>
+            </div>
+            <div class="modal-body" style="justify-content: center;">
+                Congratulations, you earned the Behavioural Activation Badge <br>
+                <img src="media/badgeMod4.png" style="width:10%; height: auto">
+            </div>
+            <div class="modal-footer">
+                <p>Click anywhere outside this box to return to module or:</p><br>
+                <a class="btn btn-secondary" href="user-profile.html">Go to Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

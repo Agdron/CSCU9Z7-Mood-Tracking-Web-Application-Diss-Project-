@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- http://localhost:3000/ABC-module.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Matching Module</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: beige;
+        }
+        .col-sm-9 {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid black;
+            text-align: center;
+            background: beige;
+        }
+        .navbar {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .side-nav {
+            background-color: darkslategray;
+            min-height: 100vh;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        .side-nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 4px;
+            transition: background-color 0.6s;
+            margin-bottom: 8px;
+        }
+        .side-nav a:hover {
+            background-color: #575757;
+            font-weight: bold;
+        }
+        /* Carousel styling */
+        .carousel-item {
+            padding: 20px;
+            text-align: center;
+        }
+        .drop-zone {
+            border: 2px dashed #ccc;
+            padding: 10px;
+            min-height: 100px;
+            margin: 10px;
+        }
+        .drop-zone h5 {
+            margin-top: 0;
+        }
+        .draggable-item {
+            padding: 10px;
+            background-color: lightcoral;
+            margin: 5px;
+            display: inline-block;
+            cursor: grab;
+            border-radius: 5px;
+        }
+        .next-btn, .finish-btn {
+            margin-top: 20px;
+        }
+        #completionMessage {
+            margin-top: 20px;
+        }
+        .drop-zone img {
+            width: 25%;
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/abcMatching.js" defer></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="media/site-logo.png" alt="Site Logo" style="height: 50px; width: auto;" class="me-2">
+            <span style="font-size:32px;">Mood Tracker</span>
+        </a>
+        <div style="justify-content: right;"><a class="btn btn-secondary" href="user-profile.html">Profile</a></div>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-sm-3 side-nav">
+        <ul class="list-unstyled">
+            <li><a href="http://localhost:3000/user-client.html">Mood Tracking</a></li>
+            <li><a href="http://localhost:3000/user-CBT-modules.html" style="background-color: #575757; font-weight: bold;">CBT Modules</a></li>
+            <li><a href="http://localhost:3000/user-contact.html">Contact Healthcare Provider</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <h2>ABC Matching Task</h2>
+        <p> Looking at how your mood or anxiety can influence physical symptoms and thought process can be another way of coming to better understand
+        yourself. <br> One such method is through sorting a scenario in which you feel depressed, anxious or panicked into an ABC format.
+        There are multiple meanings for this acronym, but the ABC we will be using will stand for Autonomic, Behaviours and Cognitions. <br>
+            These refer to physical symptoms (Autonomic), behaviours (same in the acronym), and thoughts (Cognitions). Other ways you could also look at the <br>
+            model refer to Adversity, Beliefs and Consequences, which cover the same bases but are not the main focus of this activity.
+        </p>
+        <p>
+            In this module, you will match the given statements to the correct category:
+            <strong>Autonomic</strong> (Physical Symptoms), <strong>Behaviours</strong>, and
+            <strong>Cognitions</strong> (Thoughts).<br> You must complete each puzzle correctly to proceed.
+        </p>
+        <!-- Carousel for ABC Matching Module -->
+        <div id="abcCarousel" class="carousel slide" data-bs-interval="false">
+            <div class="carousel-inner">
+                <!-- Slide 1: Instructions -->
+                <div class="carousel-item active">
+                    <h3>Instructions</h3>
+                    <p>
+                        You will be presented with three puzzles. Each puzzle has three drop zones labeled:
+                        <br><strong>Autonomic</strong> (Physical Symptoms), <strong>Behaviours</strong>, and
+                        <strong>Cognitions</strong> (Thoughts).
+                        <br>Read the scenario and drag each statement into the correct drop zone for that scenario. You cannot proceed until all items are placed
+                        and correctly matched. Click "Start" when you're ready.
+                    </p>
+                    <button class="btn btn-primary" data-bs-target="#abcCarousel" data-bs-slide="next">Start</button>
+                </div>
+                <!-- Slide 2: Puzzle 1 (Depression scenario) -->
+                <div class="carousel-item" data-section="depression">
+                    <h3>ABC Cognitive Behavioural Therapy Approach - Puzzle 1</h3>
+                    <p>Situation: Going to the shopping centre<br>
+                    Person A experiences trouble going to the shopping centre, and notices that their heart starts pounding, they have breathing difficulties<br>
+                    and they think they're having a heart attack which often exacerbates their physical symptoms. As a result they're now avoiding the shopping<br>
+                    centre. This unfortunately strengthens their unhelpful thoughts. These thoughts, physical symptoms and behaviours are all influenced by each other</p>
+                    <p>Drag the items to the correct drop zone:</p>
+                    <div class="row">
+                        <div class="col-4 drop-zone" data-category="autonomic" id="drop-autonomic-1">
+                            <h5>Autonomic</h5><br>
+                            <img src="media/reaction.png" alt="unhappy emotions from a cartoon person">
+                        </div>
+                        <div class="col-4 drop-zone" data-category="behaviours" id="drop-behaviours-1">
+                            <h5>Behaviours</h5><br>
+                            <img src="media/routine.png" alt="behaviour represented through a man with his activities surrounding him">
+                        </div>
+                        <div class="col-4 drop-zone" data-category="cognitions" id="drop-cognitions-1">
+                            <h5>Cognitions</h5><br>
+                            <img src="media/thoughts.png" alt="thought bubbles">
+                        </div>
+                    </div>
+                    <div id="draggables-container-1" class="mt-3">
+                        <div class="draggable-item" draggable="true" data-correct="cognitions">"I'm having a heart attack"</div>
+                        <div class="draggable-item" draggable="true" data-correct="behaviours">Escapes from the shops or avoids going</div>
+                        <div class="draggable-item" draggable="true" data-correct="autonomic">Heart Pounding, difficulty breathing and pains in chest</div>
+                    </div>
+                    <button type="button" class="btn btn-primary submit-puzzle-btn next-btn" data-section="depression" id="submit-puzzle-1" disabled>Submit Puzzle</button>
+                </div>
+                <!-- Slide 3: Puzzle 2 (Panic scenario) -->
+                <div class="carousel-item" data-section="panic">
+                    <h3>ABC Cognitive Behavioural Therapy Approach - Puzzle 2</h3>
+                    <p>Person B has been having problems at University and as a result has been feeling rather low. As a result, Person B has withdrawn <br>
+                    from social situations and is not spending as much time around other people. They have had minimal contact with friends but have interpreted <br>
+                    most of them as unsympatheric. With this in mind, please sort Person B's ABC Below</p>
+                    <p>Drag the items to the correct drop zone:</p>
+                    <div class="row">
+                        <div class="col-4 drop-zone" data-category="autonomic" id="drop-autonomic-2">
+                            <h5>Autonomic</h5><br>
+                            <img src="media/reaction.png" alt="unhappy emotions from a cartoon person">
+                        </div>
+                        <div class="col-4 drop-zone" data-category="behaviours" id="drop-behaviours-2">
+                            <h5>Behaviours</h5><br>
+                            <img src="media/routine.png" alt="behaviour represented through a man with his activities surrounding him">
+                        </div>
+                        <div class="col-4 drop-zone" data-category="cognitions" id="drop-cognitions-2">
+                            <h5>Cognitions</h5><br>
+                            <img src="media/thoughts.png" alt="thought bubbles">
+                        </div>
+                    </div>
+                    <div id="draggables-container-2" class="mt-3">
+                        <div class="draggable-item" draggable="true" data-correct="behaviours">Withdrawing, not spending time with friends or family</div>
+                        <div class="draggable-item" draggable="true" data-correct="cognitions">"No one is bothered about me"</div>
+                        <div class="draggable-item" draggable="true" data-correct="autonomic">Always tired and irritable</div>
+                    </div>
+                    <button type="button" class="btn btn-primary submit-puzzle-btn next-btn" data-section="panic" id="submit-puzzle-2" disabled>Submit Puzzle</button>
+                </div>
+                <!-- Slide 4: Puzzle 3 (Anxiety scenario) -->
+                <div class="carousel-item" data-section="anxiety">
+                    <h3>ABC Cognitive Behavioural Therapy Approach - Puzzle 3</h3>
+                    <p>Person C has been trying out for the community choir, but was not selected after their audition. As a result, they have been worried that<br>
+                    their singing voice is terrible and is no good, and as a result has stopped practicing as they see no point. Please sort the ABC's for this scenario below</p>
+                    <p>Drag the items to the correct drop zone:</p>
+                    <div class="row">
+                        <div class="col-4 drop-zone" data-category="autonomic" id="drop-autonomic-3">
+                            <h5>Autonomic</h5><br>
+                            <img src="media/reaction.png" alt="unhappy emotions from a cartoon person">
+                        </div>
+                        <div class="col-4 drop-zone" data-category="behaviours" id="drop-behaviours-3">
+                            <h5>Behaviours</h5><br>
+                            <img src="media/routine.png" alt="behaviour represented through a man with his activities surrounding him">
+                        </div>
+                        <div class="col-4 drop-zone" data-category="cognitions" id="drop-cognitions-3">
+                            <h5>Cognitions</h5>
+                            <br>
+                            <img src="media/thoughts.png" alt="thought bubbles">
+                        </div>
+                    </div>
+                    <div id="draggables-container-3" class="mt-3">
+                        <div class="draggable-item" draggable="true" data-correct="autonomic">Upset, low mood, irritable</div>
+                        <div class="draggable-item" draggable="true" data-correct="cognitions">"My voice must be terrible/Nobody likes my singing"</div>
+                        <div class="draggable-item" draggable="true" data-correct="behaviours">Stops practicing and gives up on joining the choir</div>
+                    </div>
+                    <button type="button" class="btn btn-primary submit-puzzle-btn next-btn" data-section="anxiety" id="submit-puzzle-3" disabled>Submit Puzzle</button>
+                </div>
+                <!-- Slide 5: Custom ABC Scenario -->
+                <div class="carousel-item" data-section="custom">
+                    <h3>Create Your Own ABC Scenario</h3>
+                    <p>Think of a scenario in which you feel depressed, anxious or panicked and try to consider the ABCs of this. This will help you to understand<br>
+                    how these affect you. The text area below provides a flexible space for you to write about any situation.<br>
+                    Please Note: this will be shared with your healthcare provider so they can continue to provide support</p>
+                    <textarea id="module2-input" class="form-control" placeholder="Enter your ABC scenario here..."></textarea>
+                    <button type="button" class="btn btn-success finish-btn module-submit-btn" data-section="custom" id="module2-submit" disabled>Finish Module</button>
+                </div>
+                <!-- Slide 6: Completion -->
+                <div class="carousel-item  alert alert-success mt-3">
+                    <h3>Congratulations!</h3>
+                    <p>You have completed the ABC Matching Module and earned the "ABC Master" badge!</p>
+                    <a class="btn btn-success" href="http://localhost:3000/user-CBT-modules.html">Return to CBT Module Selection</a>
+                </div>
+            </div>
+        </div>
+        <div id="completionMessage" class="alert alert-success mt-3" style="display: none;">
+            Congratulations! You have completed the module.
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="badgeModal" tabindex="-1" aria-labelledby="badgeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="badgeModalLabel">Badge Earned!</h5>
+            </div>
+            <div class="modal-body" style="justify-content: center;">
+                Congratulations, you earned the ABC Master Badge <br>
+                <img src="media/badgeMod2.png" style="width:10%; height: auto">
+            </div>
+            <div class="modal-footer">
+                <p>Click anywhere outside this box to return to module or:</p><br>
+                <a class="btn btn-secondary" href="user-profile.html">Go to Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

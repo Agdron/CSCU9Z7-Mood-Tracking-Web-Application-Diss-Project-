@@ -1,0 +1,27 @@
+[
+  {
+    "sender": "User",
+    "text": "User sent a message at 29/03/2025, 18:13:32: Good evening",
+    "timestamp": "2025-03-29T18:13:32.857Z"
+  },
+  {
+    "sender": "Admin",
+    "text": "Admin sent a message at 29/03/2025, 18:13:44: Good Afternoon",
+    "timestamp": "2025-03-29T18:13:44.206Z"
+  },
+  {
+    "sender": "User",
+    "text": "User sent a message at 29/03/2025, 18:15:00: How are you?",
+    "timestamp": "2025-03-29T18:15:00.478Z"
+  },
+  {
+    "sender": "Admin",
+    "text": "Admin sent a message at 29/03/2025, 18:15:15: I'm good, yourself?",
+    "timestamp": "2025-03-29T18:15:15.371Z"
+  },
+  {
+    "sender": "User",
+    "text": "User sent a message at 29/03/2025, 18:15:50: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate velit urna, ut gravida diam venenatis eget. Aliquam dictum, urna sed fermentum commodo, orci elit dignissim metus, nec tempus quam lectus id quam. Quisque vel ultricies felis. Nulla ultrices lobortis augue, id maximus tellus tristique vitae. Praesent blandit magna vel purus consequat malesuada. Praesent sit amet leo pharetra dolor auctor ultricies ut quis nunc. Duis ut cursus odio. Nam sed nunc eget ex imperdiet vulputate sed sed lacus. Phasellus feugiat mauris quis luctus semper. Quisque eu neque porta, iaculis neque ultrices, blandit turpis. Nulla venenatis imperdiet dapibus. Sed laoreet varius sem eu pellentesque. Sed lacinia euismod neque, sed porttitor lorem rhoncus hendrerit.",
+    "timestamp": "2025-03-29T18:15:50.205Z"
+  }
+]

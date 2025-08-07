@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- http://localhost:3000/SMART-goals.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker: SMART Goals</title>
+    <link rel="icon" href="media/site-logo.png" type="image/png">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: beige;
+        }
+        .col-sm-9 {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid black;
+            text-align: center;
+            background: beige;
+        }
+        .navbar {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .side-nav {
+            background-color: darkslategray;
+            min-height: 100vh;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .side-nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 4px;
+            transition: background-color 0.6s;
+        }
+        .side-nav a:hover {
+            background-color: #575757;
+            font-weight: bold;
+        }
+        .carousel-item {
+            padding: 20px;
+        }
+        .suggestions {
+            margin-top: 5px;
+        }
+        .suggestion-item {
+            display: inline-block;
+            background-color: #e9ecef;
+            padding: 5px 10px;
+            margin: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .preview {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        img{
+            width: 100px;
+            height: auto;
+            display: inline-block;
+        }
+    </style>
+    <link rel="stylesheet" href="globalStyles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="module3.js" defer></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="media/site-logo.png" alt="Site Logo" style="height: 50px; width: auto;" class="me-2">
+            <span style="font-size:32px;">Mood Tracker</span>
+        </a>
+        <div style="justify-content: right;"><a class="btn btn-secondary" href="user-profile.html">Profile</a></div>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-sm-3 side-nav">
+        <ul class="list-unstyled">
+            <li><a href="http://localhost:3000/user-client.html">Mood Tracking</a></li>
+            <li><a href="http://localhost:3000/user-CBT-modules.html" style="background-color: #575757;font-weight: bold;">CBT Modules</a></li>
+            <li><a href="http://localhost:3000/user-contact.html">Contact Healthcare Provider</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <div id="goalCarousel" class="carousel slide" data-bs-interval="false">
+            <div class="carousel-inner">
+                <!-- Slide 1: Introduction -->
+                <div class="carousel-item active">
+                    <h2>Welcome to SMART Goal Setting</h2>
+                    <p>A SMART goal is Specific, Measurable, Achievable, Relevant, and Time-bound.</p>
+                    <p>Swipe or click Next to begin setting your goal.</p>
+                    <img src="media/radar.png" alt="A target/radar"><img src="media/kpi.png" alt="some measuring methods used in data presentation"><img src="media/medal.png" alt="medal"><img src="media/puzzle.png" alt="puzzle pieces"><img src="media/chronometer.png" alt="stopwatch"><br><br>
+
+                    <button class="btn btn-primary" data-bs-target="#goalCarousel" data-bs-slide="next">Next</button>
+                </div>
+                <!-- Slide 2: Specific -->
+                <div class="carousel-item">
+                    <h3>Specific</h3>
+                    <p>Define exactly what you want to do. For example: "take a 15-minute walk." Some suggestions may pop up below.</p><img src="media/radar.png" alt="A target/radar">
+                    <input type="text" id="specific" class="form-control" placeholder="e.g. take a 15-minute walk"><br>
+                    <h4>Suggested Tasks</h4>
+                    <div class="suggestions" id="specific-suggestions">
+                        <span class="suggestion-item">take a walk</span>
+                        <span class="suggestion-item">practice meditation</span>
+                        <span class="suggestion-item">read for 20 minutes</span>
+                    </div><br>
+                    <button class="btn btn-secondary" data-bs-target="#goalCarousel" data-bs-slide="prev">Back</button>
+                    <button class="btn btn-primary" data-bs-target="#goalCarousel" data-bs-slide="next" onclick="saveInput('specific')">Next</button>
+                </div>
+                <!-- Slide 3: Measurable -->
+                <div class="carousel-item">
+                    <h3>Measurable</h3>
+                    <p>Decide how you will measure progress. For example: "track my steps."</p><img src="media/kpi.png" alt="some measuring methods used in data presentation">
+                    <input type="text" id="measurable" class="form-control" placeholder="e.g. track my steps with my phone"><br>
+                    <h4>Suggested Tasks</h4>
+                    <div class="suggestions" id="measurable-suggestions">
+                        <span class="suggestion-item">track with an app</span>
+                        <span class="suggestion-item">record in a journal</span>
+                    </div><br>
+                    <button class="btn btn-secondary" data-bs-target="#goalCarousel" data-bs-slide="prev">Back</button>
+                    <button class="btn btn-primary" data-bs-target="#goalCarousel" data-bs-slide="next" onclick="saveInput('measurable')">Next</button>
+                </div>
+
+                <!-- Slide 4: Achievable -->
+                <div class="carousel-item">
+                    <h3>Achievable</h3>
+                    <p>Ensure the goal is realistic and attainable. For example: "set aside time daily."</p><img src="media/medal.png" alt="medal">
+                    <input type="text" id="achievable" class="form-control" placeholder="e.g. set aside time daily"><br>
+                    <h4>Suggested Tasks</h4>
+                    <div class="suggestions" id="achievable-suggestions">
+                        <span class="suggestion-item">set a reminder</span>
+                        <span class="suggestion-item">schedule in calendar</span>
+                    </div><br>
+                    <button class="btn btn-secondary" data-bs-target="#goalCarousel" data-bs-slide="prev">Back</button>
+                    <button class="btn btn-primary" data-bs-target="#goalCarousel" data-bs-slide="next" onclick="saveInput('achievable')">Next</button>
+                </div>
+                <!-- Slide 5: Relevant -->
+                <div class="carousel-item">
+                    <h3>Relevant</h3>
+                    <p>Explain why this goal matters. For example: "improve my physical and mental well-being."</p><img src="media/puzzle.png" alt="puzzle pieces">
+                    <input type="text" id="relevant" class="form-control" placeholder="e.g. improve my physical and mental well-being"><br>
+                    <h4>Suggested Tasks</h4>
+                    <div class="suggestions" id="relevant-suggestions">
+                        <span class="suggestion-item">improve well-being</span>
+                        <span class="suggestion-item">boost mood</span>
+                    </div><br>
+                    <button class="btn btn-secondary" data-bs-target="#goalCarousel" data-bs-slide="prev">Back</button>
+                    <button class="btn btn-primary" data-bs-target="#goalCarousel" data-bs-slide="next" onclick="saveInput('relevant')">Next</button>
+                </div>
+                <!-- Slide 6: Time-bound -->
+                <div class="carousel-item">
+                    <h3>Time-bound</h3>
+                    <p>Set a deadline. For example: "within 4 weeks."</p><img src="media/chronometer.png" alt="stopwatch">
+                    <input type="text" id="timebound" class="form-control" placeholder="e.g. achieve within 4 weeks"><br>
+                    <h4>Suggested Tasks</h4>
+                    <div class="suggestions" id="timebound-suggestions">
+                        <span class="suggestion-item">4 weeks</span>
+                        <span class="suggestion-item">30 days</span>
+                    </div><br>
+                    <button class="btn btn-secondary" data-bs-target="#goalCarousel" data-bs-slide="prev">Back</button>
+                    <button class="btn btn-primary" data-bs-target="#goalCarousel" data-bs-slide="next" onclick="saveInput('timebound')">Next</button>
+                </div>
+                <!-- Slide 7: Preview and Submit -->
+                <div class="carousel-item">
+                    <h3>Preview Your SMART Goal</h3><br>
+                    <div id="goal-preview" class="preview"></div><br>
+                    <button class="btn btn-secondary" data-bs-target="#goalCarousel" data-bs-slide="prev">Back</button>
+                    <button class="btn btn-success" id="submit-goal">Submit Goal</button>
+                </div>
+                <!-- Slide 8: Congratulations -->
+                <div class="carousel-item alert alert-success mt-3">
+                    <h3>Congratulations!</h3>
+                    <p>You've completed the SMART Goals Module and have earned the SMART Goals Badge.</p>
+                    <a class="btn btn-success" href="http://localhost:3000/user-CBT-modules.html">Return to CBT Module Selection</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="badgeModal" tabindex="-1" aria-labelledby="badgeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="badgeModalLabel">Badge Earned!</h5>
+            </div>
+            <div class="modal-body" style="justify-content: center;">
+                Congratulations, you earned the SMART Goals Badge <br>
+                <img src="media/badgeMod3.png" style="width:10%; height: auto">
+            </div>
+            <div class="modal-footer">
+                <p>Click anywhere outside this box to return to module or:</p><br>
+                <a class="btn btn-secondary" href="user-profile.html">Go to Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

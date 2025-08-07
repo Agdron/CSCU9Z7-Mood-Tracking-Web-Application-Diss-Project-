@@ -1,0 +1,200 @@
+[
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Feeling okay this morning.",
+    "timestamp": "2025-03-12T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Work stress is getting to me.",
+    "timestamp": "2025-03-12T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Good",
+    "note": "Had a relaxing evening.",
+    "timestamp": "2025-03-12T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Woke up feeling exhausted.",
+    "timestamp": "2025-03-13T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Feeling slightly better after lunch.",
+    "timestamp": "2025-03-13T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Frustrating day overall.",
+    "timestamp": "2025-03-13T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Good",
+    "note": "Slept well, feeling refreshed.",
+    "timestamp": "2025-03-14T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Work was fine, nothing special.",
+    "timestamp": "2025-03-14T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Got some bad news in the evening.",
+    "timestamp": "2025-03-14T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Mood is stable this morning.",
+    "timestamp": "2025-03-15T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Good",
+    "note": "Feeling motivated for once.",
+    "timestamp": "2025-03-15T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Winding down, feeling okay.",
+    "timestamp": "2025-03-15T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Didn’t sleep well, groggy morning.",
+    "timestamp": "2025-03-16T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Got some fresh air, helped a bit.",
+    "timestamp": "2025-03-16T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Good",
+    "note": "Feeling positive tonight.",
+    "timestamp": "2025-03-16T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Nothing to complain about this morning.",
+    "timestamp": "2025-03-17T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Work stress creeping in again.",
+    "timestamp": "2025-03-17T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Good",
+    "note": "Had a good chat with a friend.",
+    "timestamp": "2025-03-17T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Feeling overwhelmed today.",
+    "timestamp": "2025-03-18T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Managed to push through the day.",
+    "timestamp": "2025-03-18T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Mood dipped again tonight.",
+    "timestamp": "2025-03-18T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Good",
+    "note": "Started the day feeling energetic.",
+    "timestamp": "2025-03-19T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "A little sluggish after lunch.",
+    "timestamp": "2025-03-19T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Just feeling off this evening.",
+    "timestamp": "2025-03-19T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Good",
+    "note": "Finally feeling like myself again.",
+    "timestamp": "2025-03-20T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "A rough afternoon emotionally.",
+    "timestamp": "2025-03-20T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Winding down with some TV.",
+    "timestamp": "2025-03-20T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Feeling okay today.",
+    "timestamp": "2025-03-21T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Good",
+    "note": "Nice weather lifted my mood.",
+    "timestamp": "2025-03-21T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Evening anxiety creeping in.",
+    "timestamp": "2025-03-21T20:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Bad",
+    "note": "Struggled to get up this morning.",
+    "timestamp": "2025-03-22T08:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Neutral",
+    "note": "Some moments of calm this afternoon.",
+    "timestamp": "2025-03-22T14:00:00.000Z"
+  },
+  {
+    "username": "User",
+    "mood": "Good",
+    "note": "Nice evening with friends.",
+    "timestamp": "2025-03-22T20:00:00.000Z"
+  }
+]

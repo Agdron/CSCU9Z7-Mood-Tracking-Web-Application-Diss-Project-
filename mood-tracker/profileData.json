@@ -1,0 +1,7 @@
+{
+  "name": "Human",
+  "bio": "Human Person",
+  "profilePicture": "http://localhost:3000/media/default-avatar.jpg",
+  "badges": [
+  ]
+}

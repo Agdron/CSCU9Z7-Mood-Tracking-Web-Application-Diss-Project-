@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--http://localhost:3000/admin-CBT-modules.html-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Tracker: CBT Outlooks</title>
+  <link rel="icon" href="media/site-logo.png" type="image/png">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: beige;
+    }
+    .col-sm-9 {
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid black;
+      background: beige;
+    }
+    .navbar {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .side-nav {
+      background-color: darkslategray;
+      min-height: 100vh;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .side-nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 4px;
+      transition: background-color 0.6s;
+    }
+    .side-nav a:hover {
+      background-color: #575757;
+      font-weight: bold;
+    }
+
+    .carousel-inner {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    }
+    .carousel-item {
+      padding: 20px;
+    }
+    .module-heading {
+      margin-bottom: 20px;
+    }
+    .card {
+      margin-bottom: 10px;
+    }
+    .module-menu {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .module-menu button {
+      margin: 0 10px;
+    }
+  </style>
+  <link rel="stylesheet" href="globalStyles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="admin.js" defer></script>
+  <script src="adminCBThandler.js" defer></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="media/site-logo.png" alt="Site Logo" style="height: 50px; width: auto;" class="me-2">
+      <span style="font-size:32px;">Mood Tracker</span>
+    </a>
+  </div>
+</nav>
+<div class="row">
+  <div class="col-sm-3 side-nav">
+    <ul class="list-unstyled">
+      <li><a href="http://localhost:3000/admin-client.html">Mood Tracking Dashboard</a></li>
+      <li><a href="http://localhost:3000/admin-CBT-modules.html" style="background-color: #575757; font-weight: bold;">Check Module Progress</a></li>
+      <li><a href="http://localhost:3000/admin-contact.html">Contact User</a></li>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+    <h2>CBT Module Dashboard</h2>
+    <!-- Module Selection Menu -->
+    <div class="module-menu">
+      <button class="btn btn-primary" onclick="switchModule(0)">Module 1</button>
+      <button class="btn btn-primary" onclick="switchModule(1)">Module 2</button>
+      <button class="btn btn-primary" onclick="switchModule(2)">Module 3</button>
+    </div>
+    <!-- Carousel for Module Data -->
+    <div id="moduleCarousel" class="carousel slide" data-bs-interval="false">
+      <div class="carousel-inner">
+        <!-- Slide 1: Module 1 Data -->
+        <div class="carousel-item active" id="module1-container">
+          <h3 class="module-heading">Module 1: Thought Records</h3>
+          <div id="module1-data"></div>
+        </div>
+        <!-- Slide 2: Module 2 Data -->
+        <div class="carousel-item" id="module2-container">
+          <h3 class="module-heading">Module 2: Custom ABC Scenarios</h3>
+          <div id="module2-data"></div>
+        </div>
+        <!-- Slide 3: Module 3 Data -->
+        <div class="carousel-item" id="module3-container">
+          <h3 class="module-heading">Module 3: SMART Goals</h3>
+          <div id="module3-data"></div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#moduleCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#moduleCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
